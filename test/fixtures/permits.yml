@@ -1,0 +1,32 @@
+# == Schema Information
+#
+# Table name: permits
+#
+#  id                 :integer          not null, primary key
+#  permit_reason      :string
+#  permit_date_start  :date
+#  permit_date_finish :date
+#  permit_type_id     :integer
+#  permit_state_id    :integer
+#  user_id            :integer
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  permit_reason: MyString
+  permit_date_start: 2018-04-17
+  permit_date_finish: 2018-04-17
+  permit_type: one
+  permit_state: one
+  user: one
+
+two:
+  permit_reason: MyString
+  permit_date_start: 2018-04-17
+  permit_date_finish: 2018-04-17
+  permit_type: two
+  permit_state: two
+  user: two

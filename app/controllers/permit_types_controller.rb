@@ -1,0 +1,2 @@
+class PermitTypesController < ApplicationController
+end
