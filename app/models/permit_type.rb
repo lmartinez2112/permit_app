@@ -13,4 +13,8 @@ class PermitType < ApplicationRecord
 
 	has_many(:permits)
 
+	validates :name_type, presence: true, allow_blank: false
+	validates :abb_type, presence:true, allow_blank: false
+	validates :abb_type, length: { is: 3 }
+
 end

@@ -13,7 +13,6 @@ users = User.create([
 
 users.first.add_role(:admin)
 
-begin
 
 PermitState.create([
 	{name_state: "En revisión", abb_state: "ENR"},

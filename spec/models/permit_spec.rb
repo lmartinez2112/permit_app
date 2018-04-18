@@ -21,4 +21,11 @@ RSpec.describe Permit, type: :model do
 	it { should belong_to(:permit_state) }
 	it { should belong_to(:user) }
 
+	it { should validate_presence_of(:permit_reason) }
+	it { should validate_presence_of(:permit_date_start) }
+	it { should validate_presence_of(:permit_date_finish) }
+	it { should validate_presence_of(:permit_type) }
+	it { should validate_presence_of(:permit_state) }
+	it { should validate_presence_of(:user) }
+
 end

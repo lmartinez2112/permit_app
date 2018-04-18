@@ -15,4 +15,8 @@ RSpec.describe PermitType, type: :model do
 
 	it { should have_many(:permits) }
 
+	it { should validate_presence_of(:name_type) }
+	it { should validate_presence_of(:abb_type) }
+	it { should validate_length_of(:abb_type).is_equal_to(3) }
+
 end

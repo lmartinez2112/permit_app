@@ -17,4 +17,12 @@ class Permit < ApplicationRecord
   belongs_to :permit_type
   belongs_to :permit_state
   belongs_to :user
+
+  validates :permit_reason, presence: true, allow_blank: false
+  validates :permit_date_start, presence: true, allow_blank: false
+  validates :permit_date_finish, presence: true, allow_blank: false
+  validates :permit_type, presence: true
+  validates :permit_state, presence: true
+  validates :user, presence: true
+  
 end

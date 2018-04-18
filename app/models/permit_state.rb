@@ -10,4 +10,9 @@
 #
 
 class PermitState < ApplicationRecord
+	has_many(:permits)
+
+	validates :name_state, presence: true, allow_blank: false
+	validates :abb_state, presence: true, allow_blank: false
+	validates :abb_state, length: { is: 3 }
 end

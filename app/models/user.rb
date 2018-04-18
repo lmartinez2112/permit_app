@@ -26,7 +26,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many(:permits)
+
   after_create :assign_default_role
+
+  #validates :name, presence: true, allow_blank: false
+  #validates :lastname, presence: true, allow_blank: false
 
   private
 
