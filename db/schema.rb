@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20180417212601) do
   end
 
   create_table "permits", force: :cascade do |t|
-    t.string "permit_reason"
+    t.text "permit_reason"
     t.date "permit_date_start"
     t.date "permit_date_finish"
     t.bigint "permit_type_id"

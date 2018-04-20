@@ -1,0 +1,23 @@
+<h1>Home#dashboard</h1>
+
+<%= form_with url: permits_path do |f| %>
+	
+	<%= f.text_area :permit_reason %>
+<% end %>
+
+<form>
+  <div class="form-group">
+    <label for="permit_type"Tipo de permiso>Tipo de permiso</label>
+    <select name="permit_type" id="permit_type" class="form-control">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+    </select>
+  </div>
+	<div class="form-group">
+    <label for="permit_reason">Describa el permiso</label>
+    <textarea name="permit_reason" class="form-control" id="permit_reason" cols="15" rows="5"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
