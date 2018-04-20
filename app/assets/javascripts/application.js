@@ -14,6 +14,22 @@
 //= require jquery3
 //= require popper
 //= require bootstrap
+//= require bootstrap-datepicker
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+	var date=new Date();
+	var day = date.getDate();
+	var year=date.getFullYear(); //get year
+	var month=date.getMonth(); //get month
+
+	$('.fechas').datepicker({
+		format: 'dd/mm/yyyy',
+		language: 'es',
+		autoclose: true,
+		startDate: new Date(year, month, day) //set it here
+    	//endDate: new Date(year+1, month, '31')
+	});
+});

@@ -37,6 +37,7 @@ gem 'devise', '~> 4.2'
 gem 'cancancan', '~> 2.2'
 gem 'rolify', '~> 5.2'
 gem 'bootstrap', '~> 4.1.0'
+gem 'bootstrap-datepicker-rails'
 gem 'jquery-rails'
 
 
@@ -51,6 +52,8 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'shoulda-matchers', '~> 3.1'
   gem 'faker'
+  gem 'pry'
+  gem 'pry-rails'
 end
 
 group :development do
