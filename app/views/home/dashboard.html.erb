@@ -1,25 +1,26 @@
 <h1>Home#dashboard</h1>
 
 <%= form_with url: permits_path do |f| %>
-  <div class="form-group">
-    <label> Tipo de permiso</label>
-    <%= f.select :permit_type, @permit_type.map{|p| [p.name_type, p.abb_type]}, {} , class: 'form-control'%>
+  <div class="form-row">
+    <div class="form-group col-sm-4">
+      <label> Tipo de permiso</label>
+      <%= f.select :permit_type, @permit_type.map{|p| [p.name_type, p.abb_type]}, {} , class: 'form-control', id: :permit_type%>
+    </div>
   </div>
   <div class="form-row">
     <div class="form-group col-sm-4">
       <label>Fecha inicio permiso</label>
-      <%= f.text_field :permit_date_start, class: 'form-control fechas'%>
+      <%= f.text_field :permit_date_start, class: 'form-control fechas', required: true%>
     </div>
     <div class="form-group col-sm-4">
       <label>Fecha fin permiso</label>
-      <%= f.text_field :permit_date_finish, class: 'form-control fechas'%>
+      <%= f.text_field :permit_date_finish, class: 'form-control fechas', required: true%>
     </div>
   </div>
   <div class="form-group">
     <label> Describa permiso</label>
-    <%= f.text_area :permit_reason, cols: 15, rows: 5, class: 'form-control', id: :permit_reason %>
+    <%= f.text_area :permit_reason, cols: 15, rows: 5, class: 'form-control', id: :permit_reason , required: true%>
   </div>
   <%= f.submit 'Enviar', class: 'btn btn-primary' %>
-  <%= f.submit 'Limpiar', class: 'btn btn-info', type: 'reset' %>
+  <%= f.submit 'Limpiar', class: 'btn btn-info', type: 'reset', id: 'btnLimpiarForm'%>
 <% end %>
-
