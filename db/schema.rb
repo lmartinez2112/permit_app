@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180417212601) do
+ActiveRecord::Schema.define(version: 20180424155617) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20180417212601) do
     t.string "abb_state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "state_label_html"
   end
 
   create_table "permit_types", force: :cascade do |t|
@@ -27,6 +28,7 @@ ActiveRecord::Schema.define(version: 20180417212601) do
     t.string "abb_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "type_label_html"
   end
 
   create_table "permits", force: :cascade do |t|
@@ -38,6 +40,7 @@ ActiveRecord::Schema.define(version: 20180417212601) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "code_permit"
     t.index ["permit_state_id"], name: "index_permits_on_permit_state_id"
     t.index ["permit_type_id"], name: "index_permits_on_permit_type_id"
     t.index ["user_id"], name: "index_permits_on_user_id"

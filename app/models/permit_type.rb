@@ -2,11 +2,12 @@
 #
 # Table name: permit_types
 #
-#  id         :integer          not null, primary key
-#  name_type  :string
-#  abb_type   :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id              :integer          not null, primary key
+#  name_type       :string
+#  abb_type        :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  type_label_html :string
 #
 
 class PermitType < ApplicationRecord

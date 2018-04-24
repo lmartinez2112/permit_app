@@ -1,1 +1,35 @@
 <h1>MY PERMITS</h1>
+<table id="example" class="display table table-hover table-bordered" cellspacing="0" width="100%">
+  <thead>
+  <tr>
+    <th>Code</th>
+    <th>Type permit</th>
+    <th>State permit</th>
+    <th>Reason</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @permits.each do |permit|%>
+    <tr>
+      <td><%= permit.code_permit %></td>
+      <td style="text-align: center"><h4><%= permit.permit_type.type_label_html.html_safe%></h4></td>
+      <td style="text-align: center"><h4><%= permit.permit_state.state_label_html.html_safe%></h4></td>
+      <td><%= permit.permit_reason %></td>
+      <td>
+        <div class="btn-group">
+          <%= link_to edit_permit_path(permit), class: 'btn btn-info' do%>
+            <i class="fas fa-edit"></i>
+          <% end %>
+          <%= link_to permit_path(permit),
+                      method: :delete,
+                      data: {confirm: 'Are you sure'},
+                      class: 'btn btn-danger' do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
+        </div>
+      </td>
+    </tr>
+  <%end%>
+  </tbody>
+</table>

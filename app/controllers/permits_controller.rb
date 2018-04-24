@@ -3,7 +3,7 @@ class PermitsController < ApplicationController
 		@permit = Permit.new(permit_params)
 		@permit.user = current_user
 		@permit.permit_type = PermitType.find_by(abb_type: params['permit_type'])
-		@permit.permit_state = PermitState.find_by(abb_state: 'ACT')
+		@permit.permit_state = PermitState.find_by(abb_state: 'ENR')
 		
 		if @permit.save
 			redirect_to my_permits_path, flash: { success: "Permiso creado exitosamente"}
@@ -13,10 +13,14 @@ class PermitsController < ApplicationController
 	end
 
 	def my_permits
-		@permits = current_user.permits
+		@permits = current_user.permits.order(created_at: :desc)
 	end
 
 	def show
+	end
+
+	def edit
+
 	end
 
 	private
