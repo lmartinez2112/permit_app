@@ -1,0 +1,14 @@
+<div id="permit-modal-edit" class="modal fade permit" role="dialog">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3> Code : <span class="badge badge-primary"><%= @permit.code_permit %></span></h3>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				
+			</div>
+			<div class="modal-body">
+				<%= render 'permit_form' %>
+			</div>
+		</div>
+	</div>
+</div>

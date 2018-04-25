@@ -1,0 +1,22 @@
+<div id="permit-modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3> Code : <span class="badge badge-primary"><%= @permit.code_permit %></span></h3>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        
+      </div>
+      <div class="modal-body">
+        <h4> Type: <span><%= @permit.permit_type.type_label_html.html_safe%></span></h4>
+        <h4> State: <span><%= @permit.permit_state.state_label_html.html_safe%></span></h4>
+        <h4> Date start: <span><%= @permit.permit_date_start.strftime('%d-%m-%Y')%></span></h4>
+        <h4> Date finish: <span><%= @permit.permit_date_finish.strftime('%d-%m-%Y')%></span></h4>
+        <h4> Reason: </h4>
+        <p><%= @permit.permit_reason%></p>
+      </div>
+      <div class="modal-footer">
+        <h5>Sended: <span class="badge badge-warning"><%= @permit.created_at.strftime('%d-%m-%Y %H:%M:%S %p')%></span></h5>
+      </div>
+    </div>
+  </div>
+</div>

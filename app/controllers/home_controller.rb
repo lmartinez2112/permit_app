@@ -4,5 +4,6 @@ class HomeController < ApplicationController
 
   def dashboard
     @permit_type = PermitType.all
+    @permit = Permit.new
   end
 end

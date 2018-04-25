@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   authenticated :user do
-  	root 'home#dashboard', as: :dashboard_root
+  	root 'permits#my_permits', as: :dashboard_root
     resources :permits
     get 'my_permits/', to: 'permits#my_permits'
   end
