@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).on 'turbolinks:load', ->
 	$('#example').dataTable 'order': []
-	$('#btnLimpiarForm').trigger 'click'
+	#$('#btnLimpiarForm').trigger 'click'
 	date = new Date
 	day = date.getDate()
 	year = date.getFullYear()
@@ -16,6 +16,3 @@ $(document).on 'turbolinks:load', ->
 	  autoclose: true
 	  todayHighlight: true
 	  startDate: new Date(year, month, day)
-
-	$('#permit-modal-new').on 'show', ->
-		alert 'se muestra'

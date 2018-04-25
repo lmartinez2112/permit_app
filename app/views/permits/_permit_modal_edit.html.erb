@@ -12,3 +12,18 @@
 		</div>
 	</div>
 </div>
+
+<script>
+	var date, day, month, year;
+	date = new Date;
+	day = date.getDate();
+	year = date.getFullYear();
+	month = date.getMonth();
+	$('.fechas').datepicker({
+	  format: 'dd/mm/yyyy',
+	  language: 'es',
+	  autoclose: true,
+	  todayHighlight: true,
+	  startDate: new Date(year, month, day)
+	});
+</script>
