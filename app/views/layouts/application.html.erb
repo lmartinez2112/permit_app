@@ -6,7 +6,7 @@
      <meta name="turbolinks-cache-control" content="no-cache">
     <title>PermitApp</title>
     <%= csrf_meta_tags %>
-
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.16/datatables.min.css"/>
@@ -17,9 +17,9 @@
   <body>
     <div class="container">
       <%= render "layouts/navbar"%>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
       <% flash.each do |key, value| %>
+        <% key='info' if key == 'alert' || key =='notice'%>
+        <% key='warning' if key == 'error' %>
         <div class="alert alert-<%= key %> alert-dismissible fade show"><%= value %>
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>

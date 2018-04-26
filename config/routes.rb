@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   	root 'permits#my_permits', as: :dashboard_root
     resources :permits
     get 'my_permits/', to: 'permits#my_permits'
+    post 'permit_change_state/:id/:state', to: 'permits#change_state', as: 'permit_change_state'
   end
   root 'home#index'
 

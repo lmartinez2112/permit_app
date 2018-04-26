@@ -14,6 +14,9 @@
 					<i class="fas fa-user"></i> <%= current_user.name + " " + current_user.lastname%>
 				</a>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <% if current_user.has_role? 'admin' %>
+            <%=link_to "All permits", permits_path, class: "dropdown-item" %>
+          <% end %>
 					<%=link_to "My Permits", my_permits_path, class: "dropdown-item" %>
 					<div class="dropdown-divider"></div> 
 					<%= link_to destroy_user_session_path, 

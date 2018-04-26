@@ -2,7 +2,11 @@
   <div class="form-row">
     <div class="form-group col-sm-4">
       <label> Tipo de permiso</label>
-      <%= f.select :permit_type, @permit_type.map{|p| [p.name_type, p.abb_type]}, {} , class: 'form-control', id: :permit_type%>
+      <%= f.select :permit_type,
+                   @permit_type.map{|p| [p.name_type, p.abb_type]},
+                   @permit.permit_type.nil? ? {} : {selected: @permit.permit_type.abb_type},
+                   class: 'form-control',
+                   id: :permit_type%>
     </div>
   </div>
   <div class="form-row">

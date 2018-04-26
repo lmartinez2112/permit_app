@@ -16,3 +16,4 @@ $(document).on 'turbolinks:load', ->
 	  autoclose: true
 	  todayHighlight: true
 	  startDate: new Date(year, month, day)
+  $('[data-toggle="tooltip"]').tooltip()

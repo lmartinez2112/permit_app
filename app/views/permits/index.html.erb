@@ -1,0 +1,60 @@
+<h1><span class="badge badge-secondary">All Permits</span></h1>
+<br>
+<table id="example" class="display table table-hover table-bordered" cellspacing="0" width="100%">
+  <thead>
+  <tr>
+    <th>Code</th>
+    <th>Name</th>
+    <th>Type permit</th>
+    <th>State permit</th>
+    <th>Reason</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @permits.each do |permit|%>
+    <tr>
+      <td style="text-align: center;"><h5><span class="badge badge-primary"><%= permit.code_permit %></span></h5></td>
+      <td style="text-align: center">
+        <%= permit.user.name + " " + permit.user.lastname%>
+      </td>
+      <td style="text-align: center;"><h4><%= permit.permit_type.type_label_html.html_safe%></h4></td>
+      <td style="text-align: center;"><h4><%= permit.permit_state.state_label_html.html_safe%></h4></td>
+      <td><%= permit.permit_reason %></td>
+      <td style="text-align: center;">
+        <% if permit.permit_state.abb_state == 'ENR' %>
+          <%=link_to permit_change_state_path(permit,'ACT'),
+                     method: :post,
+                     data: {toggle: 'tooltip', placement: 'top', title: 'Accept'},
+                     remote: true,
+                     class: 'btn btn-info' do%>
+            <i class="fas fa-check-circle"></i>
+          <% end %>
+          <%= link_to permit_change_state_path(permit, 'DEN'),
+                      method: :post,
+                      data: {toggle: 'tooltip', placement: 'top', title: 'Cancel'},
+                      remote: true,
+                      class: 'btn btn-danger' do %>
+            <i class="fas fa-times-circle"></i>
+          <% end %>
+        <% end %>
+        <% if permit.permit_state.abb_state == 'ACT' %>
+          <%=link_to permit_change_state_path(permit,'FIN'),
+                     method: :post,
+                     data: {toggle: 'tooltip', placement: 'top', title: 'End'},
+                     remote: true,
+                     class: 'btn btn-success' do %>
+            <i class="fas fa-check"></i>
+          <% end %>
+        <% end %>
+        <%= link_to permit_path(permit), remote: true, class: 'btn btn-secondary' do%>
+          <i class="fas fa-eye"></i>
+        <% end %>
+      </td>
+    </tr>
+  <%end%>
+  </tbody>
+</table>
+
+<div id="permit"></div>
+<div id="permit-content"></div>
