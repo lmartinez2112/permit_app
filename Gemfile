@@ -39,6 +39,7 @@ gem 'rolify', '~> 5.2'
 gem 'bootstrap', '~> 4.1.0'
 gem 'bootstrap-datepicker-rails'
 gem 'jquery-rails'
+gem 'omniauth-google-oauth2'
 
 
 group :development, :test do
