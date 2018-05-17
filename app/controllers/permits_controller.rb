@@ -51,8 +51,8 @@ class PermitsController < ApplicationController
 
 	def edit
 		@permit = Permit.find(params[:id])
-		@permit.permit_date_start = @permit.permit_date_start.strftime('%d/%m/%Y')
-		@permit.permit_date_finish = @permit.permit_date_finish.strftime('%d/%m/%Y')
+		@permit.permit_date_start = @permit.permit_date_start.strftime('%d/%m/%Y %H:%M %p')
+		@permit.permit_date_finish = @permit.permit_date_finish.strftime('%d/%m/%Y %H:%M %p')
 		@permit_type = PermitType.all
 		respond_to do |format|
 			format.js

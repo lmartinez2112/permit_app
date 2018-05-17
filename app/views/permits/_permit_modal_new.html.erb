@@ -14,25 +14,29 @@
 </div>
 
 <script>
-	var date, day, month, year;
-	date = new Date;
-	day = date.getDate();
-	year = date.getFullYear();
-	month = date.getMonth();
-	$('.fechas').datepicker({
-		format: 'dd/mm/yyyy',
-		language: 'es',
-		autoclose: true,
-		todayHighlight: true,
-		startDate: new Date(year, month, day)
-	});
-	$('#fecha_inicio').datetimepicker({
-		icons: {
-			time: 'fas fa-clock',
-			today: 'fas fa-calendar-alt'
-		},
-		buttons: {
-			showToday: true
-		}
-	});
+  $('#fecha_inicio').datetimepicker({
+    icons: {
+      time: 'fas fa-clock',
+      today: 'fas fa-calendar-alt'
+    },
+    buttons: {
+      showToday: true
+    },
+    config: {
+    	
+    }
+  });
+
+  $('#fecha_fin').datetimepicker({
+    icons: {
+      time: 'fas fa-clock',
+      today: 'fas fa-calendar-alt'
+    },
+    buttons: {
+      showToday: true
+    },
+    config: {
+    	
+    }
+  });
 </script>

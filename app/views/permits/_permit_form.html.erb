@@ -19,7 +19,10 @@
     </div>
     <div class="form-group col-sm-4">
       <label>Fecha fin permiso</label>
-      <%= f.text_field :permit_date_finish, class: 'form-control fechas', required: true%>
+      <%= f.text_field :permit_date_finish, class: 'form-control datetimepicker-input', id: 'fecha_fin', data: {
+        toggle: 'datetimepicker',
+        target: '#fecha_fin'
+      }, required: true%>
     </div>
   </div>
   <div class="form-group">

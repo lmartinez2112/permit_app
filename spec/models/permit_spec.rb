@@ -4,8 +4,8 @@
 #
 #  id                 :integer          not null, primary key
 #  permit_reason      :text
-#  permit_date_start  :date
-#  permit_date_finish :date
+#  permit_date_start  :datetime
+#  permit_date_finish :datetime
 #  permit_type_id     :integer
 #  permit_state_id    :integer
 #  user_id            :integer
