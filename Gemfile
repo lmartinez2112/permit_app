@@ -40,8 +40,8 @@ gem 'bootstrap', '~> 4.1.0'
 gem 'bootstrap-datepicker-rails'
 gem 'jquery-rails'
 gem 'omniauth-google-oauth2'
-gem 'momentjs-rails', '~> 2.20', '>= 2.20.1'
-gem 'bootstrap4-datetime-picker-rails'
+gem 'jquery-timepicker-rails', '~> 1.11', '>= 1.11.10'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

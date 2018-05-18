@@ -14,9 +14,9 @@
 //= require jquery3
 //= require popper
 //= require bootstrap
-//= require bootstrap-datepicker
-//= require moment
-//= require tempusdominus-bootstrap-4.js
+//= require jquery.timepicker.js
+//= require Datepair
+//= require jquery.datepair.js
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .

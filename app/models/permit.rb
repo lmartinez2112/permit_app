@@ -12,6 +12,8 @@
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #  code_permit        :string
+#  permit_time_start  :time
+#  permit_time_finish :time
 #
 
 class Permit < ApplicationRecord

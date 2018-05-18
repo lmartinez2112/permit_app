@@ -13,6 +13,7 @@ class PermitsController < ApplicationController
 		@permit.user = current_user
 		@permit.permit_type = PermitType.find_by(abb_type: params['permit']['permit_type'])
 		@permit.permit_state = PermitState.find_by(abb_state: 'ENR')
+		binding.pry
 		if @permit.save
 			redirect_to my_permits_path, flash: { success: "Permiso creado exitosamente"}
 		else
@@ -51,8 +52,10 @@ class PermitsController < ApplicationController
 
 	def edit
 		@permit = Permit.find(params[:id])
-		@permit.permit_date_start = @permit.permit_date_start.strftime('%d/%m/%Y %H:%M %p')
-		@permit.permit_date_finish = @permit.permit_date_finish.strftime('%d/%m/%Y %H:%M %p')
+		@permit.permit_date_start = @permit.permit_date_start.strftime('%d/%m/%Y')
+		@permit.permit_date_finish = @permit.permit_date_finish.strftime('%d/%m/%Y')
+		@permit.permit_time_start = @permit.permit_time_start.strftime('%H:%M %p')
+		@permit.permit_time_finish = @permit.permit_time_finish.strftime('%H:%M %p')
 		@permit_type = PermitType.all
 		respond_to do |format|
 			format.js
@@ -75,6 +78,6 @@ class PermitsController < ApplicationController
 	private
 
 	def permit_params
-		params.require(:permit).permit(:permit_reason, :permit_date_start, :permit_date_finish)
+		params.require(:permit).permit(:permit_reason, :permit_date_start, :permit_date_finish, :permit_time_start, :permit_time_finish)
 	end
 end

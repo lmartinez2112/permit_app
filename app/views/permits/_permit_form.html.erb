@@ -9,20 +9,24 @@
                    id: :permit_type%>
     </div>
   </div>
-  <div class="form-row">
+  <div class="form-row datepairExample2">
     <div class="form-group col-sm-4">
-      <label>Fecha inicio permiso</label>
-      <%= f.text_field :permit_date_start, class: 'form-control datetimepicker-input', id: 'fecha_inicio', data: {
-        toggle: 'datetimepicker',
-        target: '#fecha_inicio'
-      }, required: true%>
+      <label>Fecha inicio</label>
+      <%= f.text_field :permit_date_start, class: 'form-control date start', required: true%>
     </div>
     <div class="form-group col-sm-4">
-      <label>Fecha fin permiso</label>
-      <%= f.text_field :permit_date_finish, class: 'form-control datetimepicker-input', id: 'fecha_fin', data: {
-        toggle: 'datetimepicker',
-        target: '#fecha_fin'
-      }, required: true%>
+      <label>Fecha fin</label>
+      <%= f.text_field :permit_date_finish, class: 'form-control date end', required: true %>
+    </div>
+  </div>
+  <div class="form-row datepairExample2">
+    <div class="form-group col-sm-4">
+      <label>Hora inicio</label>
+      <%= f.text_field :permit_time_start, class: 'form-control time start', required: true %>
+    </div>
+    <div class="form-group col-sm-4">
+      <label>Hora fin</label>
+      <%= f.text_field :permit_time_finish, class: 'form-control time end', required: true %>
     </div>
   </div>
   <div class="form-group">
@@ -32,3 +36,31 @@
   <%= f.submit 'Enviar', class: 'btn btn-primary' %>
   <%= f.submit 'Limpiar', class: 'btn btn-info', type: 'reset', id: 'btnLimpiarForm'%>
 <% end %>
+<script>
+    var date, day, month, year;
+    date = new Date;
+    day = date.getDate();
+    year = date.getFullYear();
+    month = date.getMonth();
+    // initialize input widgets first
+    $('.datepairExample2 .time').timepicker({
+        'showDuration': true,
+        'timeFormat': 'g:ia',
+        'minTime': '8:00am',
+        'maxTime': '6:00pm',
+        'disableTimeRanges': [
+          ['12pm', '1pm']
+        ]
+    });
+
+    $('.datepairExample2 .date').datepicker({
+        'format': 'dd/mm/yyyy',
+        'autoclose': true,
+        'todayHighlight': true,
+        'language': 'es',
+        'startDate': new Date(year, month, day)
+    });
+
+    // initialize datepair
+    $('.datepairExample2').datepair();
+</script>
