@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :permits
     get 'my_permits/', to: 'permits#my_permits'
     post 'permit_change_state/:id/:state', to: 'permits#change_state', as: 'permit_change_state'
+    get 'home_index/', to: 'home#dashboard'
   end
   root 'home#index'
 

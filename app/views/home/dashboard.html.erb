@@ -16,6 +16,13 @@
       <label>Fecha fin permiso</label>
       <%= f.text_field :permit_date_finish, class: 'form-control fechas', required: true%>
     </div>
+    <div class="form-group col-sm-4">
+    	<label>Text</label>
+    	<%= f.text_field :permit_date_finish, class: 'form-control datetimepicker-input', id: 'test', data: {
+    		toggle: 'datetimepicker',
+    		target: '#test'
+    	}%>
+    </div>
   </div>
   <div class="form-group">
     <label> Describa permiso</label>
@@ -24,3 +31,12 @@
   <%= f.submit 'Enviar', class: 'btn btn-primary' %>
   <%= f.submit 'Limpiar', class: 'btn btn-info', type: 'reset', id: 'btnLimpiarForm'%>
 <% end %>
+<script type="text/javascript">
+    $(function () {
+        $('#test').datetimepicker({
+        	icons: {
+        		time: 'fas fa-clock'
+        	}
+        });
+    });
+</script>
