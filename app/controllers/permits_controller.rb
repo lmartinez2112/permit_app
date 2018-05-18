@@ -13,7 +13,6 @@ class PermitsController < ApplicationController
 		@permit.user = current_user
 		@permit.permit_type = PermitType.find_by(abb_type: params['permit']['permit_type'])
 		@permit.permit_state = PermitState.find_by(abb_state: 'ENR')
-		binding.pry
 		if @permit.save
 			redirect_to my_permits_path, flash: { success: "Permiso creado exitosamente"}
 		else
