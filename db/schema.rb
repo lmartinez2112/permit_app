@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180424155617) do
+ActiveRecord::Schema.define(version: 20180518213307) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,14 +33,16 @@ ActiveRecord::Schema.define(version: 20180424155617) do
 
   create_table "permits", force: :cascade do |t|
     t.text "permit_reason"
-    t.date "permit_date_start"
-    t.date "permit_date_finish"
+    t.datetime "permit_date_start"
+    t.datetime "permit_date_finish"
     t.bigint "permit_type_id"
     t.bigint "permit_state_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "code_permit"
+    t.time "permit_time_start"
+    t.time "permit_time_finish"
     t.index ["permit_state_id"], name: "index_permits_on_permit_state_id"
     t.index ["permit_type_id"], name: "index_permits_on_permit_type_id"
     t.index ["user_id"], name: "index_permits_on_user_id"
