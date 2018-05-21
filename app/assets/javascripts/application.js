@@ -15,6 +15,7 @@
 //= require popper
 //= require bootstrap
 //= require jquery.timepicker.js
+//= require bootstrap-datepicker
 //= require Datepair
 //= require jquery.datepair.js
 //= require rails-ujs

@@ -7,15 +7,15 @@
         
       </div>
       <div class="modal-body">
-        <h4> Type: <span><%= @permit.permit_type.type_label_html.html_safe%></span></h4>
-        <h4> State: <span><%= @permit.permit_state.state_label_html.html_safe%></span></h4>
-        <h4> Date start: <span><%= @permit.permit_date_start.strftime('%d-%m-%Y')%></span></h4>
-        <h4> Date finish: <span><%= @permit.permit_date_finish.strftime('%d-%m-%Y')%></span></h4>
-        <h4> Reason: </h4>
+        <h4> Tipo permiso: <span><%= @permit.permit_type.type_label_html.html_safe%></span></h4>
+        <h4> Estado permiso: <span><%= @permit.permit_state.state_label_html.html_safe%></span></h4>
+        <h4> Fecha y hora inicio: </h4><span><%= @permit.permit_date_start.strftime('%d-%m-%Y')%> <%= @permit.permit_time_start.strftime('%H:%M %p')%></span>
+        <h4> Fecha y hora fin: </h4><span><%= @permit.permit_date_finish.strftime('%d-%m-%Y')%> <%=@permit.permit_time_finish.strftime('%H:%M %p')%></span>
+        <h4> Descripción del permiso: </h4>
         <p><%= @permit.permit_reason%></p>
       </div>
       <div class="modal-footer">
-        <h5>Sended: <span class="badge badge-warning"><%= @permit.created_at.strftime('%d-%m-%Y %H:%M:%S %p')%></span></h5>
+        <h5>Permiso creado: <span class="badge badge-warning"><%= @permit.created_at.strftime('%d-%m-%Y %H:%M %p')%></span></h5>
       </div>
     </div>
   </div>

@@ -20,23 +20,39 @@
 #
 
 class User < ApplicationRecord
-  rolify
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, omniauth_providers: [:google_oauth2]
+	rolify
+	# Include default devise modules. Others available are:
+	# :confirmable, :lockable, :timeoutable and :omniauthable
+	devise :database_authenticatable, :registerable,
+				 :recoverable, :rememberable, :trackable, :validatable,
+				 :omniauthable, omniauth_providers: [:google_oauth2]
 
-  has_many(:permits)
+	has_many :permits, dependent: :destroy
 
-  after_create :assign_default_role
+	after_create :assign_default_role
 
-  #validates :name, presence: true, allow_blank: false
-  #validates :lastname, presence: true, allow_blank: false
+	#validates :name, presence: true, allow_blank: false
+	#validates :lastname, presence: true, allow_blank: false
 
-  private
+	def self.from_omniauth(access_token)
+		data = access_token.info
+		user = User.where(email: data['email']).first
+		return user if user
+		if ['techlatam.la','sigcapitales.com'].include? data['email'].split('@')[1]
+			#unless user
+			user = User.create(name: data['name'],
+					email: data['email'],
+					name: data['first_name'],
+					lastname: data['last_name'],
+					password: Devise.friendly_token[0,20]
+			 )
+			 #end
+		end
+	end
+	private
 
-  	def assign_default_role
-  		self.add_role(:user) if self.roles.blank?
-  	end
+		def assign_default_role
+			self.add_role(:user) if self.roles.blank?
+		end
+
 end

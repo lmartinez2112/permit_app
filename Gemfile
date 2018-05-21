@@ -41,6 +41,7 @@ gem 'bootstrap-datepicker-rails'
 gem 'jquery-rails'
 gem 'omniauth-google-oauth2'
 gem 'jquery-timepicker-rails', '~> 1.11', '>= 1.11.10'
+gem 'figaro'
 
 
 group :development, :test do

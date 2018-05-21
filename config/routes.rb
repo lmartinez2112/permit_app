@@ -6,6 +6,10 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
 
+  devise_scope :user do
+     delete 'sign_out', :to => 'users#destroy', :as => :destroy_user_session_google
+  end
+
   authenticated :user do
   	root 'permits#my_permits', as: :dashboard_root
     resources :permits
