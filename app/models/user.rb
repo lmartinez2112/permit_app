@@ -37,17 +37,15 @@ class User < ApplicationRecord
 	def self.from_omniauth(access_token)
 		data = access_token.info
 		user = User.where(email: data['email']).first
-		return user if user
-		if ['techlatam.la','sigcapitales.com'].include? data['email'].split('@')[1]
-			#unless user
+		unless user
 			user = User.create(name: data['name'],
 					email: data['email'],
 					name: data['first_name'],
 					lastname: data['last_name'],
 					password: Devise.friendly_token[0,20]
 			 )
-			 #end
 		end
+		user
 	end
 	private
 
