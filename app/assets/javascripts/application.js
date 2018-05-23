@@ -14,6 +14,8 @@
 //= require jquery3
 //= require popper
 //= require bootstrap
+//= require Chart.bundle
+//= require chartkick
 //= require jquery.timepicker.js
 //= require bootstrap-datepicker
 //= require Datepair

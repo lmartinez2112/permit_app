@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 		
 	end
 
-	def destroy
-		binding.pry
+	def reports
+		@users = User.all
 	end
 end

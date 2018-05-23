@@ -42,7 +42,7 @@ gem 'jquery-rails'
 gem 'omniauth-google-oauth2'
 gem 'jquery-timepicker-rails', '~> 1.11', '>= 1.11.10'
 gem 'figaro'
-
+gem 'chartkick', '~> 2.3', '>= 2.3.4'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
