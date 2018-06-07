@@ -1,4 +1,5 @@
 class PermitsController < ApplicationController
+	before_action :require_login
 
 	def index
 		if current_user.has_role? 'admin'
@@ -79,4 +80,10 @@ class PermitsController < ApplicationController
 	def permit_params
 		params.require(:permit).permit(:permit_reason, :permit_date_start, :permit_date_finish, :permit_time_start, :permit_time_finish)
 	end
+
+	def require_login
+    unless current_user
+      redirect_to root_path
+    end
+  end
 end
