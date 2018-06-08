@@ -85,7 +85,7 @@ Rails.application.configure do
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
-
+   config.action_mailer.default_url_options = { host: 'https://permitapp.herokuapp.com' }
   ActionMailer::Base.default :from => ENV['EMAIL_TO_NOTIFY_PERMIT']
 
   ActionMailer::Base.smtp_settings = {
