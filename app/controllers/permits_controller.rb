@@ -16,6 +16,7 @@ class PermitsController < ApplicationController
 		@permit.permit_state = PermitState.find_by(abb_state: 'ENR')
 		if @permit.save
 			redirect_to my_permits_path, flash: { success: "Permiso creado exitosamente"}
+			NotificationMailer.new_permit_email(@permit).deliver_now
 		else
 			redirect_to my_permits_path, flash: { error: "Hubo un error, al crear el permiso" }
 		end

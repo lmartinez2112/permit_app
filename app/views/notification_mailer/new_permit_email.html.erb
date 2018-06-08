@@ -1,0 +1,13 @@
+<h1>Nuevo permiso de: <%= @permit.user.name + ' ' + @permit.user.lastname %></h1>
+<p>
+  <b>C&oacute;digo permiso: </b> <%= @permit.code_permit %>
+  <br>
+  <b>Detalle permiso: </b> <%= @permit.permit_reason%>
+  <br>
+  <b>Fecha permiso inicio: </b> <%= @permit.permit_date_start.strftime('%d/%m/%Y') + ' ' + @permit.permit_time_start.strftime('%H:%M %p')%>
+  <br>
+  <b>Fecha permiso fin: </b> <%= @permit.permit_date_finish.strftime('%d/%m/%Y') + ' ' + @permit.permit_time_finish.strftime('%H:%M %p')%>
+</p>
+<p>
+  <%=link_to "Puede visualizarlo aqui", permits_url%>
+</p>
