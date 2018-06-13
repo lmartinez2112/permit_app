@@ -25,19 +25,28 @@
         <% if permit.permit_state.abb_state == 'ENR' %>
           <%=link_to permit_change_state_path(permit,'ACT'),
                      method: :post,
-                     data: {toggle: 'tooltip', placement: 'top', title: 'Accept'},
+                     data: {toggle: 'tooltip', placement: 'top', title: 'Aceptar permiso'},
                      remote: true,
                      class: 'btn btn-info' do%>
             <i class="fas fa-check-circle"></i>
           <% end %>
-          <%= link_to permit_change_state_path(permit, 'DEN'),
+          <%= link_to permit_change_state_path(permit, 'CAN'),
                       method: :post,
-                      data: {toggle: 'tooltip', placement: 'top', title: 'Cancel'},
+                      data: {toggle: 'tooltip', placement: 'top', title: 'Cancelar permiso'},
                       remote: true,
                       class: 'btn btn-danger' do %>
             <i class="fas fa-times-circle"></i>
           <% end %>
         <% end %>
+        <% if permit.permit_state.abb_state == 'CAN'%>
+          <%= link_to permit_change_state_path(permit, 'ENR'),
+            method: :post,
+            data: {toggle: 'tooltip', placement: 'top', title: 'Reactivar permiso'},
+            remote: true,
+            class: 'btn btn-primary' do%>
+          <i class="fas fa-sync-alt"></i>
+          <%end%>
+        <%end%>
         <% if permit.permit_state.abb_state == 'ACT' %>
           <%=link_to permit_change_state_path(permit,'FIN'),
                      method: :post,
@@ -47,7 +56,10 @@
             <i class="fas fa-check"></i>
           <% end %>
         <% end %>
-        <%= link_to permit_path(permit), remote: true, class: 'btn btn-secondary' do%>
+        <%= link_to permit_path(permit),
+          data: {toggle: 'tooltip', placement: 'top', title: 'Ver permiso'},
+          remote: true, 
+          class: 'btn btn-secondary' do%>
           <i class="fas fa-eye"></i>
         <% end %>
       </td>
